@@ -1,0 +1,13 @@
+{
+  "name": "fb-messenger-api",
+  "version": "1.0.0",
+  "description": "Module to handle communication with the Facebook Messenger API, e.g. using Facebook Bots",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Antonio Saad",
+  "license": "GNU",
+  "dependencies": {
+    "request-promise": "^3.0.0"
+  }
+}
