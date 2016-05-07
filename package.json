@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Module to handle communication with the Facebook Messenger API, e.g. using Facebook Bots",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "testPageAndEmitter": "node test/pageAndEmitter.js"
   },
   "author": "Antonio Saad",
   "license": "GNU",
