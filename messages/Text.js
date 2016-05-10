@@ -10,6 +10,7 @@ util.inherits(Text, Message);
 
 Text.prototype.setMessage = function(txt) {
   this._text = (txt || '').toString();
+  return this;
 };
 
 Text.prototype.content = function() {

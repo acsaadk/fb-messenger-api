@@ -13,7 +13,13 @@ Sender.prototype.send = function(message) {
   const opts = {
     method: method,
     uri: url,
-    body: message,
+    qs: {
+      access_token: this._accessToken || ''
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: message._build(),
     json: true
   };
   return Request(opts);
