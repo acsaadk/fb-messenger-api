@@ -1,6 +1,6 @@
 {
   "name": "fb-messenger-api",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Module to handle communication with the Facebook Messenger API, e.g. using Facebook Bots",
   "main": "index.js",
   "scripts": {
