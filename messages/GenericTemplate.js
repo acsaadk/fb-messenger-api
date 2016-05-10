@@ -3,7 +3,7 @@ const util = require('util');
 
 function _buildWebURL(button) {
   return {
-    type: ButtonTemplate.WEB_URL,
+    type: GenericTemplate.WEB_URL,
     url: button.url || 'https://developers.facebook.com/docs/messenger-platform/send-api-reference#examples',
     title: button.title || 'Button'
   };
@@ -11,9 +11,9 @@ function _buildWebURL(button) {
 
 function _buildPostback(button) {
   return {
-    type: ButtonTemplate.POSTBACK,
+    type: GenericTemplate.POSTBACK,
     title: button.title || 'Postback',
-    payload: button.payload || {}
+    payload: JSON.stringify(button.payload || {})
   };
 }
 
@@ -25,9 +25,9 @@ function GenericTemplate(recipient, notificationType) {
 
 util.inherits(GenericTemplate, Message);
 
-GenericTemplate.prototype.WEB_URL = 'web_url';
+GenericTemplate.WEB_URL = 'web_url';
 
-GenericTemplate.prototype.POSTBACK = 'postback';
+GenericTemplate.POSTBACK = 'postback';
 
 GenericTemplate.prototype.addElement = function(element) {
   if(element) {
@@ -45,7 +45,7 @@ GenericTemplate.prototype.addElement = function(element) {
 GenericTemplate.prototype.addButtons = function(buttons) {
   if(buttons) {
     if(buttons.constructor !== Array) buttons = [buttons];
-    const element = this._elements[this._currElement - 1];
+    const element = this._elements[this._currElement];
     for(var i = 0, len = buttons.length; i < len; i++) element.buttons.push((buttons[i].type && buttons[i].type === GenericTemplate.POSTBACK) ? _buildPostback(buttons[i]) : _buildWebURL(buttons[i]));
   }
   return this;

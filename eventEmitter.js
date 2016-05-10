@@ -10,7 +10,7 @@ EventEmitter.prototype._buildEntry = function(entry) {
   return entryObj;
 };
 
-EventEmitter.prototype.listenEvents = function(fbPage) {
+EventEmitter.prototype.listenEventsFrom = function(fbPage) {
   _fbPages[fbPage.id] = fbPage;
 };
 

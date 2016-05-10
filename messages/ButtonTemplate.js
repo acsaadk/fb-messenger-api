@@ -13,7 +13,7 @@ function _buildPostback(button) {
   return {
     type: ButtonTemplate.POSTBACK,
     title: button.title || 'Postback',
-    payload: button.payload || {}
+    payload: JSON.stringify(button.payload || {})
   };
 }
 
@@ -25,9 +25,9 @@ function ButtonTemplate(recipient, notificationType) {
 
 util.inherits(ButtonTemplate, Message);
 
-ButtonTemplate.prototype.WEB_URL = 'web_url';
+ButtonTemplate.WEB_URL = 'web_url';
 
-ButtonTemplate.prototype.POSTBACK = 'postback';
+ButtonTemplate.POSTBACK = 'postback';
 
 ButtonTemplate.prototype.setText = function(txt) {
   this._text = (txt || '').toString();
