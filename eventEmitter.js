@@ -1,5 +1,3 @@
-const FbPage = require('./FbPage');
-
 const _fbPages = {};
 
 function EventEmitter() {}
