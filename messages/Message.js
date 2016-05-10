@@ -1,4 +1,5 @@
 function Message(recipient, notificationType) {
+  this.__base__ = 'Message';
   this.body = {
     recipient: {
       id: null,

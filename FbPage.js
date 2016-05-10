@@ -1,12 +1,15 @@
+const Sender = require('./Sender');
+
 function FbPage(id, accessToken) {
   this.id = id || null;
-  this.accessToken = accessToken || null;
+  accessToken = accessToken || null;
   if(!this.id) throw new Error('Facebook Page ID is missing');
-  if(!this.accessToken) throw new Error('Facebook Access Token is missing');
+  if(!accessToken) throw new Error('Facebook Access Token is missing');
+  this._sender = new Sender(accessToken);
 }
 
-FbPage.prototype.sendMessage = function() {
-  throw 'Not implemented yet!';
+FbPage.prototype.sendMessage = function(message) {
+  return this._sender.send(message);
 };
 
 FbPage.prototype.onMessage = function(entry, message) {
