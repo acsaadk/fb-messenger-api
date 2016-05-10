@@ -79,7 +79,7 @@ ReceiptTemplate.prototype.addAdjustments = function(adjustments) {
 };
 
 ReceiptTemplate.prototype.content = function() {
-  const timestamp = new Date().getTime()
+  const timestamp = new Date().getTime();
   return {
     attachment: {
       type: 'template',
@@ -90,7 +90,7 @@ ReceiptTemplate.prototype.content = function() {
         currency: this._currency || 'USD',
         payment_method: this._paymentMethod || '****',
         order_url: this._orderUrl || '',
-        timestamp: timestamp,
+        //timestamp: timestamp, /*Removed because of this error: (#1200) Temporary send message failure*/
         elements: this._elements,
         address: {
           street_1: this._street1 || '',
