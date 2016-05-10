@@ -1,0 +1,32 @@
+{
+  "name": "fb-messenger-api",
+  "version": "1.0.0",
+  "description": "Module to handle communication with the Facebook Messenger API, e.g. using Facebook Bots",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Antonio Saad",
+  "license": "GNU",
+  "dependencies": {
+    "request-promise": "^3.0.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acsaadk/fb-messenger-api.git"
+  },
+  "keywords": [
+    "Facebook",
+    "Messenger",
+    "Chat",
+    "Bots",
+    "API"
+  ],
+  "bugs": {
+    "url": "https://github.com/acsaadk/fb-messenger-api/issues"
+  },
+  "homepage": "https://github.com/acsaadk/fb-messenger-api/blob/master/README.md"
+}
