@@ -1,4 +1,5 @@
 const Sender = require('./Sender');
+const Request = require('request-promise');
 
 function FbPage(id, accessToken) {
   this.id = id || null;
@@ -7,6 +8,10 @@ function FbPage(id, accessToken) {
   if(!accessToken) throw new Error('Facebook Access Token is missing');
   this._sender = new Sender(accessToken);
 }
+
+FbPage.prototype.getUser = function(id) {
+  return this._sender.getUser(id);
+};
 
 FbPage.prototype.sendMessage = function(message) {
   return this._sender.send(message);

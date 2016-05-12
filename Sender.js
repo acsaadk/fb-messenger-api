@@ -1,7 +1,6 @@
 const Request = require('request-promise');
 
-const url = 'https://graph.facebook.com/v2.6/me/messages';
-const method = 'POST';
+const url = 'https://graph.facebook.com/v2.6/';
 
 function Sender(accessToken) {
   this._accessToken = accessToken || null;
@@ -11,15 +10,28 @@ function Sender(accessToken) {
 Sender.prototype.send = function(message) {
   if(!message.__base__ || message.__base__ !== 'Message') throw new Error('Invalid message');
   const opts = {
-    method: method,
-    uri: url,
+    method: 'POST',
+    uri: url + 'me/messages',
     qs: {
-      access_token: this._accessToken || ''
+      access_token: this._accessToken
     },
     headers: {
       'Content-Type': 'application/json'
     },
     body: message._build(),
+    json: true
+  };
+  return Request(opts);
+};
+
+Sender.prototype.getUser = function(id) {
+  if(!id) return null;
+  const opts = {
+    method: 'GET',
+    uri: url + id,
+    qs: {
+      access_token: this._accessToken
+    },
     json: true
   };
   return Request(opts);
