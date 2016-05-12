@@ -134,3 +134,8 @@ bot.sendMessage(receiptTemplate.setRecipientName('User name')
 ]))
 .then(result => console.log(result))
 .catch(err => console.log(err.error));
+
+//Get User profile info { first_name, last_name, profile_pic, locale, timezone, gender }
+bot.getUser(process.env.FACEBOOK_TEST_RECIPIENT)
+.then(user => console.log(user))
+.catch(err => console.log(err.error));
