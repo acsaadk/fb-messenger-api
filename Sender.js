@@ -8,7 +8,7 @@ function Sender(accessToken) {
 }
 
 Sender.prototype.send = function(message) {
-  if(!message.__base__ || message.__base__ !== 'Message') throw new Error('Invalid message');
+  if(!message.__base__ || message.__base__ !== 'Message') throw new Error('Invalid message provided');
   const opts = {
     method: 'POST',
     uri: url + 'me/messages',

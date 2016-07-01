@@ -4,7 +4,8 @@
   "description": "Module to handle communication with the Facebook Messenger API, e.g. using Facebook Bots",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "test": "node ./test/index.js"
   },
   "author": "Antonio Saad",
   "license": "GNU",
