@@ -2,6 +2,8 @@
 
 require('dotenv').config()
 
+console.log(process.versions);
+
 const util = require('util');
 const Bots = require('../index');
 const Text = Bots.Text;
