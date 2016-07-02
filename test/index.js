@@ -1,5 +1,7 @@
 'use strict'
 
+require('dotenv').config()
+
 const util = require('util');
 const Bots = require('../index');
 const Text = Bots.Text;
@@ -36,7 +38,7 @@ const bot = new MyBot();
 
 EventEmitter.listenEventsFrom(bot);
 
-EventEmitter.accept(/*INCOMING_BATCH*/); /* Must be called in the webhook controller to start accepting incoming events*/
+// EventEmitter.accept(/*INCOMING_BATCH*/); /* Must be called in the webhook controller to start accepting incoming events*/
 
 const text = new Text({ id: process.env.FACEBOOK_TEST_RECIPIENT });
 
