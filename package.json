@@ -4,7 +4,7 @@
   "description": "Module to handle communication with the Facebook Messenger API, e.g. using Facebook Bots",
   "main": "index.js",
   "engines": {
-    "node": ">4.0.0"
+    "node": "4.2.3"
   },
   "scripts": {
     "start": "node ./index.js",
