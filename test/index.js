@@ -4,15 +4,15 @@ require('dotenv').config()
 
 console.log(process.versions);
 
-const util = require('util');
-const Bots = require('../index');
-const Text = Bots.Text;
-const ButtonTemplate = Bots.ButtonTemplate;
-const GenericTemplate = Bots.GenericTemplate;
-const ReceiptTemplate = Bots.ReceiptTemplate;
-const Image = Bots.Image;
-const FbPage = Bots.FbPage;
-const EventEmitter = Bots.EventEmitter;
+var util = require('util');
+var Bots = require('../index');
+var Text = Bots.Text;
+var ButtonTemplate = Bots.ButtonTemplate;
+var GenericTemplate = Bots.GenericTemplate;
+var ReceiptTemplate = Bots.ReceiptTemplate;
+var Image = Bots.Image;
+var FbPage = Bots.FbPage;
+var EventEmitter = Bots.EventEmitter;
 
 function MyBot() {
   FbPage.call(this, process.env.FACEBOOK_PAGE_ID, process.env.FACEBOOK_ACCESS_TOKEN);
@@ -36,21 +36,21 @@ MyBot.prototype.onMessagingOptins = function(entry, message) {
   console.log('Optins message arrived ', 'Entry: ', entry, 'Message: ', message);
 };
 
-const bot = new MyBot();
+var bot = new MyBot();
 
 EventEmitter.listenEventsFrom(bot);
 
 // EventEmitter.accept(/*INCOMING_BATCH*/); /* Must be called in the webhook controller to start accepting incoming events*/
 
-const text = new Text({ id: process.env.FACEBOOK_TEST_RECIPIENT });
+var text = new Text({ id: process.env.FACEBOOK_TEST_RECIPIENT });
 
-const btnTemplate = new ButtonTemplate({ id: process.env.FACEBOOK_TEST_RECIPIENT });
+var btnTemplate = new ButtonTemplate({ id: process.env.FACEBOOK_TEST_RECIPIENT });
 
-const genericTemplate = new GenericTemplate({ id: process.env.FACEBOOK_TEST_RECIPIENT });
+var genericTemplate = new GenericTemplate({ id: process.env.FACEBOOK_TEST_RECIPIENT });
 
-const image = new Image({ id: process.env.FACEBOOK_TEST_RECIPIENT });
+var image = new Image({ id: process.env.FACEBOOK_TEST_RECIPIENT });
 
-const receiptTemplate = new ReceiptTemplate({ id: process.env.FACEBOOK_TEST_RECIPIENT });
+var receiptTemplate = new ReceiptTemplate({ id: process.env.FACEBOOK_TEST_RECIPIENT });
 
 //Text case
 bot.sendMessage(text.setMessage('Basic text message'))
